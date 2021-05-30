@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { 
+        LinksListContainer,
+        OriginalLink,
+        ClipboardForm,
+        CopyBtn,
+        Input
+            } from './ShortenedList.Styled';
 
 const ShortenedList = ({ item }) => {
         //6. intial State of copied or not button
         const [copySuccess, setCopySuccess] = useState('Copy');
         const [copied, setCopied] = useState(false);
     
-        const [isClicked, setIsClicked] = useState({
-            status : false,
-            copyMessage: 'Copy'
-        })
-        //7. onCick of button target it's short url right now it's selecting the last element 
+        //7. onCick of button prevent page from rerendering and set text to Copied
         const copyToClipboard = (e) => {
             e.preventDefault();
             setCopySuccess('Copied');
@@ -18,37 +21,25 @@ const ShortenedList = ({ item }) => {
           };
           console.log(item, 'this is the prop item');
     return (
-        <div>
-            <div>
+        <LinksListContainer>
+            <OriginalLink>
                 <h5>{item.original_link}</h5>
-            </div>
+            </OriginalLink>
             {
                 /* Logical shortcut for only displaying the 
                 button if the copy command exists */
                 document.queryCommandSupported('copy') &&
-            <form>
-                <input defaultValue={item.full_short_link} />
+            <ClipboardForm>
+                <Input type="url" defaultValue={item.full_short_link} disabled={true} />
                 <CopyToClipboard 
                     text={item.full_short_link}
                     onCopy={() => setCopied(true) }>
-                    <button onClick={copyToClipboard}>{copied && copySuccess === 'Copied' ? 'Copied' : 'Copy'}</button> 
+                    <CopyBtn onClick={copyToClipboard}>{copied && copySuccess === 'Copied' ? 'Copied' : 'Copy'}</CopyBtn> 
                 </CopyToClipboard>
-            </form>
+            </ClipboardForm>
             }
-        </div>
+        </LinksListContainer>
     )
 }
 
 export default ShortenedList;
-// <ul>
-// {
-//     displayLinks.map((el, ) => {
-//         return (
-//             <li key={el.code}>
-
-
-//             </li>
-//         )
-//     })
-// }
-// </ul>

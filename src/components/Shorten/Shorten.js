@@ -1,11 +1,20 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import Loading from '../../images/Ripple-1s-200px.svg';
 import ShortenedList from '../ShortenedList/ShortenedList';
-
-
-
+import {
+        LgContainer,
+        ShortenBtn,
+        InputBox,
+        Input,
+        Form,
+        InputWrapper,
+        ErrorMessage,
+        UnorderedList,
+        ListItem,
+        SplitColor
+            } from './Shorten.Styled';
 
 const Shorten = () => {
     // get built in props of react hook form i.e. register,handleSubmit & errors / watch is for devs
@@ -27,6 +36,7 @@ const Shorten = () => {
                 setLink(data.userLink);
                 //add loading here after data is set to state
                 setLoading(!false);
+
             }
 
     //5. fetch the shortened url link using async method to show loading
@@ -36,13 +46,12 @@ const Shorten = () => {
             try {
                 let res = await axios.get('https://api.shrtco.de/v2/shorten', { params: { url: link } });
                 //hid loader if u get response from api call
-                    if (!unmounted && res.data.result.original_link) {
+                    if (!unmounted) {
                         setLoading(false);
-
+                        
                         //add the data to displayLinks array to map
                         return setDisplayLinks(displayLinks => [...displayLinks, res.data.result]);
                     }
-
                 } 
             catch (error) {
                 console.log(error, "inital mount request with no data");
@@ -64,7 +73,7 @@ const Shorten = () => {
       //gereal idea to see the list of mapped links
       console.log(displayLinks);
     return (
-        <div>
+        <SplitColor>
             {
                 loading ?
                     <div className="loader" id="loader">
@@ -72,31 +81,38 @@ const Shorten = () => {
                     </div>
                         : null
             }
+            <LgContainer>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <InputBox>
+                        <InputWrapper>
+                            <Input
+                                {...register("userLink", {required: "Please add a link"})}
+                                type="url"
+                                id="userLink"
+                                placeholder="Shorten a link here.."
+                                size="1rem"
+                                />
+                                {errors.userLink && <ErrorMessage>{errors.userLink.message}</ErrorMessage>}
+                        </InputWrapper>
+                    </InputBox>
+                        <ShortenBtn type="submit">Shorten It!</ShortenBtn>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label></label>
-                <input
-                    {...register("userLink", {required: "Please add a link"})}
-                    type="url"
-                    id="userLink"
-                />
-                {errors.userLink && <span>{errors.userLink.message}</span>}
-                <input type="submit" />
-            </form>
+            </Form>
+            </LgContainer>
 
-            <ul>
+
+            <UnorderedList>
                 {
                     displayLinks.map((el, i) => {
                         return (
-                            <li key={i}>
+                            <ListItem key={i}>
                                 <ShortenedList item={el} />
-                            </li>
+                            </ListItem>
                         )
                     })
                 }
-            </ul>
-            
-        </div>
+            </UnorderedList>
+        </SplitColor>
     )
 }
 

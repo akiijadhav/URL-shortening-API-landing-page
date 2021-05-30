@@ -1,18 +1,30 @@
 import React from 'react';
 import logo from '../../images/logo.svg';
+import {
+        NavbarContainer,
+        BrandLogo,
+        UnorderedRoutes,
+        UnorderedSignupRoutes,
+        NavItems,
+        NavBtns,
+        SignupBtn,
+        Anchor
+            } from './Navbar.Styled';
 
 const Navbar = () => {
     return (
-        <div>
-            <img src={logo} alt="logo"/>
-            <ul>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#"><button>Sign Up</button></a></li>
-            </ul>
-        </div>
+        <NavbarContainer>
+            <BrandLogo src={logo} alt="logo"/>
+            <UnorderedRoutes>
+                    <NavItems><Anchor href="#0">Features</Anchor></NavItems>
+                    <NavItems><Anchor href="#1">Pricing</Anchor></NavItems>
+                    <NavItems><Anchor href="#2">Resources</Anchor></NavItems>
+            </UnorderedRoutes>
+            <UnorderedSignupRoutes>
+                <NavBtns><Anchor href="#3">Login</Anchor></NavBtns>
+                <NavBtns><Anchor href="#4"><SignupBtn>Sign Up</SignupBtn></Anchor></NavBtns>
+            </UnorderedSignupRoutes>
+        </NavbarContainer>
     )
 }
 

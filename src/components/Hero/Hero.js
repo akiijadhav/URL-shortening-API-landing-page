@@ -1,18 +1,27 @@
 import React from 'react';
 import illustratioWorking from '../../images/illustration-working.svg'
+import {
+        HeroContainer,
+        WorkingImg,
+        HeroTitle,
+        HeroDescription,
+        HeroPara,
+        GetStartedBtn
+        } from './Hero.Styled';
+
 
 const Hero = () => {
     return (
-        <div>
-            <div>
-                <h1>More than just shorter links</h1>
-                <p>Build your band's recognition and get detailed insights on how your links are performing.</p>
-                <button>Get Started</button>
-            </div>
-            <div>
+        <HeroContainer>
+            <HeroDescription>
+                <HeroTitle>More than just shorter links</HeroTitle>
+                    <HeroPara>Build your band's recognition and get detailed insights on how your links are performing.</HeroPara>
+                <GetStartedBtn>Get Started</GetStartedBtn>
+            </HeroDescription>
+            <WorkingImg>
                 <img src={illustratioWorking} alt="hero-illustration"></img>
-            </div>
-        </div>
+            </WorkingImg>
+        </HeroContainer>
     )
 }
 
