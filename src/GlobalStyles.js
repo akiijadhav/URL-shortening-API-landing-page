@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.125rem;
-    overflow-x: hidden;
+    overflow-X: hidden;
 
     &::-webkit-scrollbar {
       width: .75rem;
