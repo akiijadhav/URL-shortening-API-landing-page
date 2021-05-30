@@ -36,6 +36,14 @@ export const CopyBtn = styled.button`
         outline: none;
         cursor: pointer;
     }
+
+    :focus {
+        background-color: ${props => props.theme.PrimaryBgColor};
+    }
+
+    :active {
+        background-color: ${props => props.theme.PrimaryBgColor};
+    }
 `
 
 export const Input = styled.input.attrs(props => ({

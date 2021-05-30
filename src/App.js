@@ -33,6 +33,7 @@ const theme = {
   PadTb32Lr0: '2rem 0',
   PadTb16Lr32: '1rem 2rem',
   PadTb8Lr32: '0.5rem 2rem',
+  PadTb8Lr40: '0.5rem 2.5rem',
 
   MarTb16LrAuto: '1rem auto',
   MarTb16Lr0: '1rem 0',

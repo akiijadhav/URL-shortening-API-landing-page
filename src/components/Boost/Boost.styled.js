@@ -11,7 +11,7 @@ export const BoostContainer = styled.div`
     text-align: center;
     background: url(${BoostDesktopBg}) no-repeat center;
     background-size: cover;
-    background-color: ${props => props.theme.VeryDarkViolet};
+    background-color: ${props => props.theme.VeryDarkBlue};
 `
 
 export const GetStarted = styled.button`
