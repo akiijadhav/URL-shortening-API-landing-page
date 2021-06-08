@@ -36,7 +36,6 @@ const Shorten = () => {
                 setLink(data.userLink);
                 //add loading here after data is set to state
                 setLoading(!false);
-
             }
 
     //5. fetch the shortened url link using async method to show loading

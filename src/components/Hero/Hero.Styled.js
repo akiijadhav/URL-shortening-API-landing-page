@@ -9,9 +9,19 @@ export const HeroContainer = styled.div`
     margin: auto;
     padding: ${props => props.theme.padTb16Lr0};
     align-items: flex-start;
+    flex-wrap: wrap;
+
+    @media (max-width: 1240px) {
+        max-width: 65.375rem;
+        padding: 1rem;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 `
 
-export const HeroTitle =  styled.h1`
+export const HeroTitle = styled.h1`
     font-size: 4rem;
     margin: ${props => props.theme.MarTb16Lr0};
     color: ${props => props.theme.PrimaryBgColor};
@@ -21,18 +31,50 @@ export const HeroTitle =  styled.h1`
     align-self: center;
     text-align: left;
     position: relative;
+
+    @media (max-width: 1240px) {
+        width: 14ch;
+        text-align: center;
+    }
+
+    @media (max-width: 992px) {
+        font-size: 3rem;
+    }
 `
 
 export const WorkingImg = styled.div`
-    position: absolute;
-    right: -100px;
     flex: 1;
-    padding: ${props => props.theme.PadTb48Lr0};
+    /* padding: ${props => props.theme.PadTb48Lr0}; */
+    height: 100%;
+
+    @media (max-width: 1240px) {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        order: 1;
+    }
+`
+export const SvgImg = styled.img`
+    height: auto;
+    width: auto;
+    position: absolute;
+    right: -8rem;
 `
 
 export const HeroDescription = styled.div`
- flex: 0;
- margin: 2rem 0;
+    flex: 0;
+    margin: 2rem 0;
+    min-height: 500px;
+
+    @media (max-width: 1240px) {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 1rem auto;
+        order: 2;
+ }
 `
 export const HeroPara = styled.p`
     width: 34.6875rem;
@@ -41,6 +83,10 @@ export const HeroPara = styled.p`
     letter-spacing: 0.1rem;
     flex-wrap: wrap;
     color: ${props => props.theme.Gray};
+
+    @media(max-width: 1240px) {
+        width: 35ch;
+    }
 `
 export const GetStartedBtn = styled.button`
     width: 10.25rem;

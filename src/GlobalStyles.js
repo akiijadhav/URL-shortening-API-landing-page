@@ -5,7 +5,6 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     width: 100%;
     height: 100%;
-    min-width: 23.438rem;
     background-color: ${props => props.theme.White};
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -16,6 +16,13 @@ export const FooterContainer = styled.div`
     margin: auto;
     justify-content: space-evenly;
     align-items: baseline;
+
+    @media (max-width: 968px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 `
 // SiteName,
 // SiteFeatures,
@@ -40,6 +47,9 @@ export const SitePages = styled(SiteFeatures)`
 `
 
 export const SiteSocials = styled(SiteFeatures)`
+    @media (max-width: 968px) {
+        justify-content: center;
+    }
 `
 
 export const CategoryHeader = styled.p`
@@ -47,6 +57,9 @@ export const CategoryHeader = styled.p`
     color: ${props => props.theme.White};
     padding: ${props => props.theme.PadTb8Lr40};
     text-align: left;
+    @media (max-width: 968px) {
+        text-align: center;
+    }
 `
 
 export const Flist = styled.ul`

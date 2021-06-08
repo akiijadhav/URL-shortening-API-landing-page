@@ -1,12 +1,13 @@
 import React from 'react';
-import illustratioWorking from '../../images/illustration-working.svg'
+import illustratioWorking from '../../images/illustration-working.svg';
 import {
         HeroContainer,
         WorkingImg,
         HeroTitle,
         HeroDescription,
         HeroPara,
-        GetStartedBtn
+        GetStartedBtn,
+        SvgImg
         } from './Hero.Styled';
 
 
@@ -19,7 +20,7 @@ const Hero = () => {
                 <GetStartedBtn>Get Started</GetStartedBtn>
             </HeroDescription>
             <WorkingImg>
-                <img src={illustratioWorking} alt="hero-illustration"></img>
+                <SvgImg src={illustratioWorking} alt="hero-illustration"></SvgImg>
             </WorkingImg>
         </HeroContainer>
     )

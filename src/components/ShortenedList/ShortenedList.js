@@ -5,7 +5,8 @@ import {
         OriginalLink,
         ClipboardForm,
         CopyBtn,
-        Input
+        Input,
+        Line
             } from './ShortenedList.Styled';
 
 const ShortenedList = ({ item }) => {
@@ -24,6 +25,7 @@ const ShortenedList = ({ item }) => {
         <LinksListContainer>
             <OriginalLink>
                 <h5>{item.original_link}</h5>
+                <Line />
             </OriginalLink>
             {
                 /* Logical shortcut for only displaying the 
@@ -34,7 +36,7 @@ const ShortenedList = ({ item }) => {
                 <CopyToClipboard 
                     text={item.full_short_link}
                     onCopy={() => setCopied(true) }>
-                    <CopyBtn onClick={copyToClipboard}>{copied && copySuccess === 'Copied' ? 'Copied' : 'Copy'}</CopyBtn> 
+                    <CopyBtn onClick={copyToClipboard}>{copied && copySuccess === 'Copied' ? 'Copied !' : 'Copy'}</CopyBtn> 
                 </CopyToClipboard>
             </ClipboardForm>
             }
